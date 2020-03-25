@@ -1,0 +1,5 @@
+.bookignore
+.gitignore
+gulpfile.js
+package.json
+package-lock.json

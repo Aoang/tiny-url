@@ -1,0 +1,34 @@
+{
+  "title": "短链接系统",
+  "author" : "Aoang",
+  "description" : "短链接系统",
+  "language": "zh-hans",
+  "plugins": [
+    "-splitter",
+    "-lunr",
+	"-sharing",
+	"simple-page-toc",
+    "search-plus",
+    "tbfed-pagefooter",
+	"favicon"
+  ],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": true
+    },
+	"favicon": {
+      "shortcut": "favicon.ico",
+      "bookmark": "favicon.ico"
+    },
+	"simple-page-toc": {
+      "maxDepth": 3,
+      "skipFirstH1": true
+    },
+    "tbfed-pagefooter": {
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    }
+  }
+  
+
+}
