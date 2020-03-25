@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      
+      - name: Install
+        run: |
+          npm install gitbook-cli gulp -g
+          npm install
+      
+      - name: Build
+        run: |
+          npm run build
+      
+      - name: Deploy
+        env: 
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git config --global user.name "Aoang"
+          git config --global user.email "i@0.946771200.xyz"
+          cd _book
+          git init
+          git add .
+          git commit -m "Auto Deployment"
+          git push --force --quiet "https://${ACCESS_TOKEN}@github.com/Aoang/tiny-url.git" master:gh-pages
